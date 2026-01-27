@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: uav-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: uav-mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_URL: mongodb://admin:password@mongodb:27017/
+      ME_CONFIG_BASICAUTH: false
+    depends_on:
+      - mongodb
+
+  backend:
+    build: ./backend
+    container_name: uav-backend
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URL: mongodb://admin:password@mongodb:27017/
+      DATABASE_NAME: uav_restoration
+    volumes:
+      - ./backend:/app
+      - ./uploads:/app/uploads
+      - ./processed:/app/processed
+      - ./exports:/app/exports
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:

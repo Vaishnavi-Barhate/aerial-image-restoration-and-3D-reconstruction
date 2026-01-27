@@ -1,0 +1,91 @@
+{
+  "job_id": "383524da-be94-43ae-91c4-4dec2b2e65c6",
+  "filename": "383524da-be94-43ae-91c4-4dec2b2e65c6_Screenshot 2025-10-09 172038.png",
+  "original_name": "Screenshot 2025-10-09 172038.png",
+  "input_file": "uploads\\383524da-be94-43ae-91c4-4dec2b2e65c6_Screenshot 2025-10-09 172038.png",
+  "status": "completed",
+  "upload_time": "2026-01-26T04:40:08.005694",
+  "file_size_kb": 676.73,
+  "file_type": "image/png",
+  "steps": {
+    "deblur": "done",
+    "depth": "done",
+    "mesh": "done",
+    "hallucination": "done"
+  },
+  "progress": 100,
+  "outputs": {
+    "restored_image": "http://localhost:8000/processed/383524da-be94-43ae-91c4-4dec2b2e65c6_restored.png",
+    "depth_map": "http://localhost:8000/processed/383524da-be94-43ae-91c4-4dec2b2e65c6_depth.png",
+    "mesh_raw": "http://localhost:8000/processed/383524da-be94-43ae-91c4-4dec2b2e65c6_mesh.obj",
+    "mesh_hallucinated": "http://localhost:8000/processed/383524da-be94-43ae-91c4-4dec2b2e65c6_mesh_full.obj",
+    "comparison": "http://localhost:8000/processed/383524da-be94-43ae-91c4-4dec2b2e65c6_comparison.png",
+    "mesh_stats": {
+      "vertices": 16384,
+      "faces": 32258,
+      "size_mb": 2.607945442199707
+    },
+    "enhanced_stats": {
+      "vertices": 65025,
+      "faces": 129032,
+      "size_mb": 13.113790512084961,
+      "confidence": 82.9032
+    },
+    "confidence": 82.9032
+  },
+  "created_at": "2026-01-26T04:40:08.005694",
+  "mesh_stats": {
+    "vertices": 16384,
+    "faces": 32258,
+    "size_mb": 2.607945442199707
+  },
+  "enhanced_stats": {
+    "vertices": 65025,
+    "faces": 129032,
+    "size_mb": 13.113790512084961,
+    "confidence": 82.9032
+  },
+  "completion_time": "2026-01-26T04:40:38.969322",
+  "job_data": {
+    "pipeline_start": "2026-01-26T04:40:08.030690",
+    "steps": {
+      "deblur": {
+        "status": "completed",
+        "time_seconds": 0.27,
+        "output_path": "processed/383524da-be94-43ae-91c4-4dec2b2e65c6_restored.png"
+      },
+      "depth": {
+        "status": "completed",
+        "time_seconds": 0.23,
+        "output_path": "processed/383524da-be94-43ae-91c4-4dec2b2e65c6_depth.png",
+        "depth_shape": "(785, 628)"
+      },
+      "mesh": {
+        "status": "completed",
+        "time_seconds": 3.52,
+        "output_path": "processed/383524da-be94-43ae-91c4-4dec2b2e65c6_mesh.obj",
+        "stats": {
+          "vertices": 16384,
+          "faces": 32258,
+          "size_mb": 2.607945442199707
+        }
+      },
+      "hallucination": {
+        "status": "completed",
+        "time_seconds": 20.02,
+        "output_path": "processed/383524da-be94-43ae-91c4-4dec2b2e65c6_mesh_full.obj",
+        "confidence": 82.9032,
+        "stats": {
+          "vertices": 65025,
+          "faces": 129032,
+          "size_mb": 13.113790512084961,
+          "confidence": 82.9032
+        }
+      }
+    },
+    "outputs": {},
+    "metrics": {},
+    "pipeline_end": "2026-01-26T04:40:38.794557",
+    "total_time_seconds": 24.04
+  }
+}
